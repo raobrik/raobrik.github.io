@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+        <title>This is my example homepage.</title>
+    </head>
+    <body>
+        <p>
+            Vega-Lite Demo Visualization.
+        </p>
+        
+        <div id="myviz">
+        </div>
+    
+    <script>
+        mySpec = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "description": "A simple bar chart",
+  "title": "Total Square Footage of Buildings by Senate District Number",
+   "data": {  "url": "data.csv",
+   "format":{"type":"csv"}},
+  "mark": "bar",
+  "encoding": {
+    "x": {"field": "Senate Dist", "type": "nominal", "axis": {"labelAngle": 0}},
+    "y": {"field": "Square Footage", "type": "quantitative"},
+    "tooltip": {"field": "Square Footage", "type": "quantitative"}
+          }
+        }
+        vegaEmbed('#myviz', mySpec);
+    </script>
+    </body>
+</html>
